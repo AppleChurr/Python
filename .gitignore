@@ -11,7 +11,7 @@ dist/
 *.class
 
 # Compiled Python bytecode
-*.py[cod]
+# *.py[cod]
 
 # Log files
 *.log
@@ -40,11 +40,24 @@ Thumbs.db
 *.exe
 *.war
 
-# Large media files
-*.mp4
+# data
+*.csv
+*.txt
+*.names
+
+# image
+*.bmp
+*.jpg
+*.jpeg
 *.tiff
+*.gif
+
+# video
+*.mp4
 *.avi
 *.flv
 *.mov
 *.wmv
+*.mkv
+*.idx
 
