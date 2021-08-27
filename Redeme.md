@@ -32,13 +32,19 @@
     영상 재생과 동시에 카운팅 하는 프로그램
 
 ## 07_AvgGTRectSize
+### 0.1.0
     데이터 셋 전체 차량의 너비, 높이 데이터 종합
+### 0.2.0
+    너비/높이 데이터 추가
 
 ## 08_BackgroundSubtractor
     배경 제거 알고리즘 예제
 
 ## 09_Video2GIF
     Video to GIF 예제
+
+## 10_CrossroadCounting
+    SignUS에서 나온 회전류 Log 데이터를 단위 시간별로 끊어서 저장
 
 ## 99_ArgVarTest
     프로그램 실행 시 매개변수 Arg, Var 예제

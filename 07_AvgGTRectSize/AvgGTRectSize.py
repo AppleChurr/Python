@@ -9,7 +9,7 @@ DATAEXT = ".txt"
 
 SplitChar = ' '
 
-CSVFile = open("MergeData.csv", 'w')
+CSVFile = open("MergeData_Rate.csv", 'w')
 
 
 for PATH_ in DATAPATH:
@@ -25,11 +25,15 @@ for PATH_ in DATAPATH:
                 if(len(line) == 5):
                     [DataClass, DataCx, DataCy, DataW, DataH] = line
 
+                    Rate = (int(float(DataW)* 10000) / 10000) / (int(float(DataH.strip('\n')) * 10000) / 10000 + 0.0000001)
+
                     CSVFile.write(DataClass)
                     CSVFile.write(',')
                     CSVFile.write(str(int(float(DataW)* 10000) / 10000))
                     CSVFile.write(',')
                     CSVFile.write(str(int(float(DataH.strip('\n')) * 10000) / 10000))
+                    CSVFile.write(",")
+                    CSVFile.write(str(int(float(Rate)* 10000) / 10000))
                     CSVFile.write(",\n")
 
             gtData.close()
