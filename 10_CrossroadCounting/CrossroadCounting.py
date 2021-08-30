@@ -68,3 +68,6 @@ for file_ in FileList:
                 dLine[4] = dLine[4] + 1
 
             print(Device, StartSec, EndSec, Dir)
+
+        lFile.close
+        dFile.close
