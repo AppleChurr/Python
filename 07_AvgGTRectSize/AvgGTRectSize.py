@@ -9,7 +9,7 @@ DATAEXT = ".txt"
 
 SplitChar = ' '
 
-CSVFile = open("MergeData_Rate.csv", 'w')
+CSVFile = open("MergeData.csv", 'w')
 
 
 for PATH_ in DATAPATH:
