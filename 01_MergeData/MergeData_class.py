@@ -26,7 +26,7 @@ elif len(sys.argv) >= 4: # 다 입력 했을 시
         print("py " + sys.argv[0] + " .xxx" + " [Data File Path 0] [Data File Path 1] ... ")
     else :
         for Argidx in range(3, len(sys.argv)):
-            NowPath = sys.argv[Argidx] + "/"
+            NowPath = sys.argv[Argidx] + "\\"
             print(NowPath)
             if os.path.isdir(sys.argv[Argidx]): # 폴더 존재 유무 확인. 존재 하면 실행.
                 print("Exist this Path")
@@ -43,7 +43,7 @@ elif len(sys.argv) >= 4: # 다 입력 했을 시
                         lines = file.readlines()
                         for line in lines:
                             line = line.split(SplitChr)
-                            if(line[1] == PickClass):
+                            if(line[0] == PickClass):
                                 # print([FileName] + line)
                                 CSVFile.write(FileName)
                                 for data in line:

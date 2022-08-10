@@ -10,7 +10,7 @@
     mAP 계산용 프로그램
 
 ## 03_IDXmaker
-    동일한 경로 상의 영상 파일에 대한 .idx 파일 생성
+    동일한 경로 상의 영상 파일에 대한 .idx 파일 생성 >> 몇몇 영상에서 안되는 문제 확인
 
 ### 0.9.1
     - .avi, .mkv도 사용 가능
@@ -46,8 +46,35 @@
 ## 10_CrossroadCounting
     SignUS에서 나온 회전류 Log 데이터를 단위 시간별로 끊어서 저장
 
+## 11_VDSDataRandomSampling
+
+## 12_GetROIMask
+
+## 13_VideoSampling
+
+## 14_PNGtoJPG
+    폴더 내부 PNG 파일을 전부 JPG로 변경하고 PNG 삭제
+
+## 15_MakeLPRData
+
+## 16_ClassModify
+    YOLO 정답 파일인 txt 파일에서 클래스를 수정하는 스크립트
+
+## 17_VideoMerge
+    두 개 이상의 영상을 하나로 이어 붙이는 스크립트
+
+## 18_COCOSplitter
+    필요한 클래스의 데이터로만 이루어지도록 분할
+
+## 19_DataSetOrganization
+    데이터셋 라벨링 되어있는 문서를 Windows COCO 형식으로 전환
+
 ## 99_ArgVarTest
     프로그램 실행 시 매개변수 Arg, Var 예제
 
 ## 99_ExMatplotlib
     Matplotlib 예제
+
+
+# exe 만들기
+pyinstaller -w -F pythonFileName.py

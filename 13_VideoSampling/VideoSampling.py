@@ -43,8 +43,6 @@ def Second2Time(Second):
 
     return hh, mm, ss, ms
 
-# vFilePath = sys.argv[1]
-
 FileList = os.listdir()
 
 for file_ in FileList:
@@ -55,7 +53,6 @@ for file_ in FileList:
         vCapture = cv2.VideoCapture(vFileName + vFmt)
 
         if vCapture.isOpened():
-            iFmt = ".idx"
             vLength, _, _, vFPS = GetVideoInfo(vCapture)
             vSPF = 1/vFPS
 
@@ -63,25 +60,17 @@ for file_ in FileList:
             MM = str(date.today().month)
             DD = str(date.today().day)
 
-            # YY = "2021"
-            # MM = "10"
-            # DD = "08"
-
             print("          Today : " + YY + "." + MM + "." + DD, end='\n\n')
-
             print('         Length : %d' %vLength)
             print('            FPS : %.3f' %vFPS)
             print('Total Play Time : %.3f' %(vLength * vFPS))
             print('            SPF : %.3f' %vSPF)
 
-            Idxfile = open(vFileName + iFmt, 'w')
-
-            for vIdx in range(0, vLength):
-                hh, mm, ss, ms = Second2Time(vIdx * vSPF)
-                Idxfile.write(str(vIdx) + ", " + YY + "." + MM + "." + DD + 
-                    "-" + hh + ":" + mm  + ":" + ss  + "." + ms + '\n')
+            for CapIdx in range(0, vLength, round(vLength/101)):
+                vCapture.set(cv2.CAP_PROP_POS_FRAMES, CapIdx)
+                _, frame = vCapture.read()
+                vImageName = "Capture\\" + vFileName + "_%d.jpg" % CapIdx
+                print(vImageName)
+                cv2.imwrite(vImageName, frame)
 
             vCapture.release()
-            Idxfile.close()
-        else:
-            print(sys.argv[1] + " is not found")
