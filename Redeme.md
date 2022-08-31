@@ -47,15 +47,19 @@
     SignUS에서 나온 회전류 Log 데이터를 단위 시간별로 끊어서 저장
 
 ## 11_VDSDataRandomSampling
+### => 미완성
 
 ## 12_GetROIMask
+### => 미완성
 
 ## 13_VideoSampling
+### => 미완성
 
 ## 14_PNGtoJPG
     폴더 내부 PNG 파일을 전부 JPG로 변경하고 PNG 삭제
 
 ## 15_MakeLPRData
+### => 미완성
 
 ## 16_ClassModify
     YOLO 정답 파일인 txt 파일에서 클래스를 수정하는 스크립트
@@ -68,6 +72,9 @@
 
 ## 19_DataSetOrganization
     데이터셋 라벨링 되어있는 문서를 Windows COCO 형식으로 전환
+
+## 20_LPRClassChanger
+    SetLPR로 만들어진 데이터 클래스를 유니코드 값이 아닌 네임즈로 세팅되어있는 값으로 변환
 
 ## 99_ArgVarTest
     프로그램 실행 시 매개변수 Arg, Var 예제

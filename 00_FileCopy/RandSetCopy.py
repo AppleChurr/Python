@@ -16,61 +16,71 @@ Ext = [".jpg", ".txt"]
 # 랜덤하게 만들어지는 갯수는 nRandom 의 수로 아래에 300이다.
 # 그 외에는 FileCopy와 동일.
 
-#TXTList = ["List_YOLO.txt", "List_SigNet.txt", "YOLO_SigNet.txt"]
-#TXTList = ["YOLO_SigNet.txt"]
-TXTList = ["1K_00.txt"]
+FileList = os.listdir()
 
-for Ridx in range(0, 20):
-    for txtName in TXTList:
-        if Ridx < 10 :
-            Dest_PATH = File_PATH + "Random" + "\\RandSet0" + str(Ridx) + "\\"
-        else :
-            Dest_PATH = File_PATH + "Random" + "\\RandSet" + str(Ridx) + "\\"
-        
+TXTList = []
 
-        if not(os.path.isdir(Dest_PATH)):
-            os.makedirs(os.path.join(Dest_PATH))
+for _File in FileList:
+    if(_File[-4:] == ".txt"):
+        TXTList.append(_File)
+    
+for Ridx in range(0, 10000):
+    if(len(TXTList) == 0):
+        break
 
-        print(Dest_PATH)
+    if Ridx < 10 :
+        Dest_PATH = File_PATH + "Random" + "\\RandSet_000" + str(Ridx) + "\\"
+    elif Ridx < 100 :
+        Dest_PATH = File_PATH + "Random" + "\\RandSet_00" + str(Ridx) + "\\"
+    elif Ridx < 1000 :
+        Dest_PATH = File_PATH + "Random" + "\\RandSet_0" + str(Ridx) + "\\"
+    else:
+        Dest_PATH = File_PATH + "Random" + "\\RandSet_" + str(Ridx) + "\\"
+    
+    if not(os.path.isdir(Dest_PATH)):
+        os.makedirs(os.path.join(Dest_PATH))
 
-        if not(os.path.isdir(Dest_PATH)):
-            os.makedirs(os.path.join(Dest_PATH))
+    print(Dest_PATH)
 
-        MoveListTXT = open(File_PATH + "ListFile\\" + txtName, 'r', encoding="UTF8")
-        CopyList = MoveListTXT.readlines()
-        MoveListTXT.close()
+    nRandom = 30
+    if(nRandom > len(TXTList)):
+        nRandom = len(TXTList)
 
-        nRandom = 300
-        nData = len(CopyList)
+    nData = len(TXTList)
 
-        RandSet = np.round((nData-1)*np.random.rand(1, nRandom))
+    RandSet = np.round((nData-1)*np.random.rand(1, nRandom))
 
-        RandSet = set(RandSet[0])
+    RandSet = set(RandSet[0])
 
-        while len(RandSet)<nRandom:
-            RandVal = np.round((nData-1)*np.random.rand())
-            RandSet.add(RandVal)
+    while len(RandSet)<nRandom:
+        RandVal = np.round((nData-1)*np.random.rand())
+        RandSet.add(RandVal)
 
-        RandSet = list(RandSet)
-        RandSet.sort()
-        RandSet = set(map(int, RandSet))
+    RandSet = list(RandSet)
+    RandSet.sort()
+    RandSet = set(map(int, RandSet))
 
-        for RandIdx in RandSet:
-            TargetFile = CopyList[RandIdx]
-            TargetFile = TargetFile.split("\n")[0]
+    for RandIdx in RandSet:
+        TargetFile = TXTList[RandIdx][:-4]
 
-            for ext in Ext:
-                Dest_File = os.path.join(Dest_PATH, TargetFile + ext)
-                if os.path.exists(Dest_File):
-                    try:
-                        os.remove(Dest_File)
-                    except:
-                        print('\tRemove Fail : \n', Dest_File)
-                        continue
+        for ext in Ext:
+            Dest_File = os.path.join(Dest_PATH, TargetFile + ext)
+            if os.path.exists(Dest_File):
+                try:
+                    os.remove(Dest_File)
+                except:
+                    print('\tRemove Fail : \n', Dest_File)
+                    continue
 
-                if not os.path.isfile(TargetFile + ext):
-                    print("Target File Is Wrong >> ", TargetFile + ext)
-                    break
+            if not os.path.isfile(TargetFile + ext):
+                print("Target File Is Wrong >> ", TargetFile + ext)
+                break
 
-                print(File_PATH + TargetFile + ext + "\n\t>>", Dest_File)
-                shutil.copy(TargetFile + ext, Dest_PATH)
+            print(File_PATH + TargetFile + ext + "\n\t>>", Dest_File)
+            shutil.copy(TargetFile + ext, Dest_PATH)          
+
+    RandSet = list(RandSet)
+    RandSet.sort()
+    RandSet.reverse()
+    for RandIdx in RandSet: 
+        TXTList.pop(RandIdx)
