@@ -6,10 +6,17 @@
 ## Model Path 
     C:\Users\JM-Sa\.u2net\
 
-    U2net : https://drive.google.com/uc?id=1tCU5MM1LhRgGou5OpmpjBQbSrYIUoYab
-    U2netp : https://drive.google.com/uc?id=1tNuFmLv0TSNDjYIkjEdeH1IWKQdUA4HR
-    U2net_human_seg : https://drive.google.com/uc?id=1ZfqwVxu-1XWC1xU1GHIP-FM_Knd_AX5j
-    U2net_cloth_seg : https://drive.google.com/uc?id=15rKbQSXQzrKCQurUjZFg8HqzZad8bcyz
+    U2net
+        https://drive.google.com/uc?id=1tCU5MM1LhRgGou5OpmpjBQbSrYIUoYab
+
+    U2netp
+        https://drive.google.com/uc?id=1tNuFmLv0TSNDjYIkjEdeH1IWKQdUA4HR
+        
+    U2net_human_seg
+        https://drive.google.com/uc?id=1ZfqwVxu-1XWC1xU1GHIP-FM_Knd_AX5j
+
+    U2net_cloth_seg
+        https://drive.google.com/uc?id=15rKbQSXQzrKCQurUjZFg8HqzZad8bcyz
 
 ### Model Train
     https://github.com/danielgatis/rembg/issues/193#issuecomment-1055534289
