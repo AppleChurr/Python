@@ -82,6 +82,8 @@
 ## 99_ExMatplotlib
     Matplotlib 예제
 
+## 99_RemoveBackGround
+    Unet을 이용한 배경 제거 예제
 
 # exe 만들기
 pyinstaller -w -F pythonFileName.py
