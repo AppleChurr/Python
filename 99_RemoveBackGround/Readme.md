@@ -6,12 +6,13 @@
 ## Model Path 
     C:\Users\JM-Sa\.u2net\
 
+### Model Download Link
     U2net
         https://drive.google.com/uc?id=1tCU5MM1LhRgGou5OpmpjBQbSrYIUoYab
 
     U2netp
         https://drive.google.com/uc?id=1tNuFmLv0TSNDjYIkjEdeH1IWKQdUA4HR
-        
+
     U2net_human_seg
         https://drive.google.com/uc?id=1ZfqwVxu-1XWC1xU1GHIP-FM_Knd_AX5j
 
