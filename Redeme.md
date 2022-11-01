@@ -76,6 +76,9 @@
 ## 20_LPRClassChanger
     SetLPR로 만들어진 데이터 클래스를 유니코드 값이 아닌 네임즈로 세팅되어있는 값으로 변환
 
+## 21_ImageSizeChanger
+    이미지의 크기를 정해진 크기로 변경하여 저장 1280x720
+
 ## 99_ArgVarTest
     프로그램 실행 시 매개변수 Arg, Var 예제
 
