@@ -12,7 +12,6 @@ if not(os.path.isdir(Dest_Folder)):
 FileList = os.listdir()
 
 for file_ in FileList:
-
     vFmt = file_[-4:]
     if any(vFmt == _ext for _ext in Ext):
         vFileName = file_[:-4]

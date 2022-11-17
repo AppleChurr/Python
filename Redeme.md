@@ -79,6 +79,9 @@
 ## 21_ImageSizeChanger
     이미지의 크기를 정해진 크기로 변경하여 저장 1280x720
 
+## 22_FalseNegativeLPImage
+    폴더 내 이미지 중 번호판 미검지 이미지만 골라내서 다른 폴더로 이동시키는 스크립트
+
 ## 99_ArgVarTest
     프로그램 실행 시 매개변수 Arg, Var 예제
 
@@ -89,4 +92,7 @@
     Unet을 이용한 배경 제거 예제
 
 # exe 만들기
-pyinstaller -w -F pythonFileName.py
+    pyinstaller -w -F pythonFileName.py
+    -w : 콘솔 표시 안함 (디폴트 : 콘솔 표시)
+    -F : 단일 exe 파일로 변환 (디폴트 : 1개 폴더로 구성)
+    -n NAME.exe :프로그램 이름을 NAME으로 지정
