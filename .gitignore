@@ -10,9 +10,6 @@ dist/
 # Compiled Java class files
 *.class
 
-# Compiled Python bytecode
-# *.py[cod]
-
 # Log files
 *.log
 
@@ -52,6 +49,7 @@ Thumbs.db
 *.names
 
 # image
+*.png
 *.bmp
 *.jpg
 *.jpeg
@@ -67,3 +65,12 @@ Thumbs.db
 *.mkv
 *.idx
 
+# exe build
+*.pyc
+*.toc
+*.pkg
+*.zip
+*.pyz
+*.manifest
+*.html
+*.spec
