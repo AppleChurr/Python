@@ -82,6 +82,9 @@
 ## 22_FalseNegativeLPImage
     폴더 내 이미지 중 번호판 미검지 이미지만 골라내서 다른 폴더로 이동시키는 스크립트
 
+## 23_LogAnalysis
+    IntelligentVDS의 전체 로그와 최근 24시간 로그를 통계적으로 비교할 수 있도록 Plot 표출
+
 ## 99_ArgVarTest
     프로그램 실행 시 매개변수 Arg, Var 예제
 
