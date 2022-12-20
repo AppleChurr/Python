@@ -26,6 +26,28 @@ def PrintLastDay(DayList, Traffics):
         tIdx += 1
 
 def ShowPlot(DayList, Traffics, TimeTicks):
+
+    hh = int(LastTime[0:2])
+    mm = int(LastTime[3:5])
+    ss = int(LastTime[6:8])
+
+    t = hh * 60 + mm
+
+    Last24H = [0] * len(xTicks)
+
+    for _h in range(0, xTicks.index( int(t / TimeStep) + 1)):
+        Last24H[_h] = Traffics[_h][DayList.index(LastDay)]
+
+    for _h in range(xTicks.index( int(t / TimeStep) + 1), len(xTicks)):
+        Last24H[_h] = Traffics[_h][DayList.index(LastDay) - 1]
+
+    LogAvg = [0] * len(xTicks)
+    for _h in range(0, len(xTicks)):
+        _list = Traffics[_h][0:DayList.index(LastDay)]
+        print(_list)
+        _avg = sum(_list) / len(_list)
+        LogAvg[_h] = _avg
+
     # Plot Data
     PlotArray = []
     for _List in Traffics:
@@ -41,6 +63,7 @@ def ShowPlot(DayList, Traffics, TimeTicks):
     axe_.set_title('Traffic Information 24H')
     axe_.boxplot(PlotArray)
     axe_.plot(xTicks, Last24H, 'r-o')
+    axe_.plot(xTicks, LogAvg, 'b--')
     axe_.grid(True, 'both')
 
     plt.xticks(xTicks, TimeSpan, rotation=45)
@@ -110,19 +133,4 @@ for _File in FileList:
 
 # PrintLastDay(DayList, Traffics)
 
-hh = int(LastTime[0:2])
-mm = int(LastTime[3:5])
-ss = int(LastTime[6:8])
-
-t = hh * 60 + mm
-
-Last24H = [0] * len(xTicks)
-
-for _h in range(0, xTicks.index( int(t / TimeStep) + 1)):
-    Last24H[_h] = Traffics[_h][DayList.index(LastDay)]
-
-for _h in range(xTicks.index( int(t / TimeStep) + 1), len(xTicks)):
-    Last24H[_h] = Traffics[_h][DayList.index(LastDay) - 1]
-
-# print(Last24H)
 ShowPlot(DayList, Traffics, TimeTicks)
