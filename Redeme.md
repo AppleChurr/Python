@@ -56,7 +56,7 @@
 ### => 미완성
 
 ## 14_PNGtoJPG
-    폴더 내부 PNG 파일을 전부 JPG로 변경하고 PNG 삭제
+    폴더 내부 PNG 파일을 전부 JPG로 변경
 
 ## 15_MakeLPRData
 ### => 미완성
