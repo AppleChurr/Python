@@ -6,12 +6,12 @@ import time
 import glob
 
 SAVEPATH = "./KITTI_"
-DATAEXT = ".txt"
-IMGEXT = ".jpg"
+DATA_EXT = ".txt"
+IMG_EXT = ".jpg"
 
 config = open("config.ini", 'r')
 
-ditcConfig = {"START_INDEX":0, "MIN_WIDTH":30, "MIN_HEIGHT":30, "DIST_IMG_WIDTH":1280, "DIST_IMG_HEIGHT":720}
+ditcConfig = {"START_INDEX":0, "MIN_WIDTH":30, "MIN_HEIGHT":30, "DIST_IMG_WIDTH":1280, "DIST_IMG_HEIGHT":720, "CIPHERS":6}
 for line in config.readlines():
     line = line.split('\n')[0]
     dictEle = line.split('=')
@@ -42,20 +42,20 @@ iw = 1280
 ih = 720
 
 for file_ in DirFileList:
-    if(file_[-4:] == DATAEXT):
+    if(file_[-4:] == DATA_EXT):
         title = file_[:-4]
         print(file_)
         lData = open(file_, 'r')
 
-        if os.path.isfile(title + IMGEXT):
-            with Image.open(title + IMGEXT) as img:
+        if os.path.isfile(title + IMG_EXT):
+            with Image.open(title + IMG_EXT) as img:
                 # iw, ih = img.size
                 print(f"Image size: {iw}x{ih}")
                 img = img.resize([ditcConfig["DIST_IMG_WIDTH"], ditcConfig["DIST_IMG_HEIGHT"]])
-                img.save(SAVEPATH + str(save_idx).zfill(10) + IMGEXT)
+                img.save(SAVEPATH + str(save_idx).zfill(ditcConfig["CIPHERS"]) + IMG_EXT)
             
 
-            kittiData = open(SAVEPATH + str(save_idx).zfill(10) + DATAEXT, 'w')
+            kittiData = open(SAVEPATH + str(save_idx).zfill(ditcConfig["CIPHERS"]) + DATA_EXT, 'w')
 
             labels = lData.readlines()
             for label in labels:
@@ -71,8 +71,6 @@ for file_ in DirFileList:
 
                 left = float(label[1]) * iw - width / 2
                 top = float(label[2]) * ih - height / 2
-
-                
 
                 kittiLabel = [lClass[int(label[0])], "0.00", "0", "0.00", str(left), str(top), str(left + width), str(top + height), "0.00", "0.00", "0.00", "0.00", "0.00", "0.00", "0.00"]
 
