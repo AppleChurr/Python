@@ -47,6 +47,10 @@ Thumbs.db
 *.ppt*
 *.txt
 *.names
+*.json
+*.dbf
+*.shp
+*.shx
 
 # image
 *.png
