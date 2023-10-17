@@ -27,8 +27,26 @@ class AVIClass:
         self.__Path = imgPath
         self.__Fmt = imgPath[-4:]
 
-        file = imgPath[:-4]
+        file = str(imgPath[:-4])
+
+        # 19년도 20년도 화성 프로토콜 기준
+        # # print(file)
+        # lfile = file.replace('_', '')
+        # # print(lfile)
+        # lfile = lfile.replace('[', '')
+        # # print(lfile)
+        # lfile = lfile.replace(']', '_')
+        # # print(lfile)
+        # lfile = lfile.replace('.', '_')
+        # # print(lfile)
+        # lfile = lfile.split('_')
+        # # print(lfile)
+        # lfile = [lfile[0] + lfile[1], lfile[2], '0' + lfile[3][0], lfile[4]]
+        # # print(lfile)  
+
+        # 21년도 화설 프로토콜 기준
         lfile = file.split('_')
+        # print(lfile)
 
         self.__Year = int(lfile[0][:4])
         self.__Month = int(lfile[0][4:6])
@@ -112,7 +130,7 @@ def LoadAnalysisData():
     if(os.path.exists(fPATH + ".csv")):
         with open(fPATH + ".csv", "r") as file:
             reader = list(csv.reader(file))
-            nImg = len(glob.glob(fPATH + "\\*.jpg"))
+            nImg = len(os.listdir(fPATH))
             nCSV = (len(reader) - 1)
             if(nImg != nCSV): 
                print("n Images : ", str(nImg), "n CSV Lines : ", str(nCSV))
@@ -187,6 +205,7 @@ def BrightnessPlot(axe_, Objects, plotloc=0, nLane=3):
         BrightnessList.append(blist)
 
     for obj in Objects:
+        if(int(obj.getLane())-1 >= 4): continue
         BrightnessList[int(obj.getLane())-1][obj.getBrightness()] += 1
 
     # ymax = max(max(BrightnessList)) * 1.1
@@ -232,6 +251,7 @@ def PlatePlot(axe_, Objects, TimeStep = 10, plotloc=1, nLane=3):
         nEmptyPlate.append(mlist)
 
     for obj in Objects:
+        if(int(obj.getLane())-1 >= 4): continue
         idx = int(obj.getTimeMinute() / TimeStep)
         nPlate[int(obj.getLane()) - 1][idx] += 1
         if(obj.getPlate() == ""):
@@ -290,6 +310,7 @@ def BrightnessAveragePlot(axe_, Objects, TimeStep = 10, plotloc=2, nLane=3):
         aBrightness.append([0] * len(TimeSpan))
 
     for obj in Objects:
+        if(int(obj.getLane())-1 >= 4): continue
         idx = int(obj.getTimeMinute() / TimeStep)
         nCar[int(obj.getLane()) - 1][idx] += 1
         sBrightness[int(obj.getLane()) - 1][idx] += obj.getBrightness()
@@ -323,6 +344,8 @@ def BrightnessAveragePlot(axe_, Objects, TimeStep = 10, plotloc=2, nLane=3):
 
 # Main Script
 exePATH = os.getcwd()
+# exePATH = "D:\\40_프로젝트\\# 화성\\[20230906] 이상 개소 개선 점검\\52"
+# exePATH = "D:\\40_프로젝트\\# 화성\\[20230906] 이상 개소 개선 점검\\41"
 dirList = os.listdir(exePATH)
 
 for _dir in dirList:

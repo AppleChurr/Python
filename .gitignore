@@ -78,3 +78,5 @@ Thumbs.db
 *.manifest
 *.html
 *.spec
+
+.tmp.driveupload/*
