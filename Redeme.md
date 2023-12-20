@@ -98,6 +98,13 @@
 ## 28_COCOtoYOLOFormat
     AI허브의 딸기 데이터를 Sign Yolo 형식으로 변환
 
+## 29_ImageBlur
+    폴더 내에 있는 이미지 블러 (라벨링 된 데이터 용)
+
+## 30_WebCamRecorder
+    웹캠 녹화용
+
+
 ## 99_ArgVarTest
     프로그램 실행 시 매개변수 Arg, Var 예제
 
