@@ -43,6 +43,8 @@ Thumbs.db
 
 # data
 *.csv
+!04_*/Data.csv
+!05_*/test.csv
 *.xl*
 *.ppt*
 *.txt
